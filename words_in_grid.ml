@@ -8,12 +8,6 @@ let string_to_list s =
   exp (String.length s - 1) []
 
 
-let rec find_sub_dictionnary dictionnary_list c =
-  match dictionnary_list with
-  | [] -> None
-  | Node(c', b, l) :: ds -> if c = c' then Some(Node(c',b,l)) else find_sub_dictionnary ds c
-
-
 let rec dictionnary_contains_character dictionnary char =
   match dictionnary with
     [] -> false
@@ -51,7 +45,9 @@ let rec get_node char = function
                                     else
                                       get_node char nodes
 
-
+let add_word word dictionnary =
+  let char_list = string_to_list word in
+  add_char_list_to_dictionnary char_list dictionnary
 
 let is_word_in_dictionnary word dictionnary =
   let rec aux char_list dictionnary =
@@ -70,11 +66,6 @@ let is_word_in_dictionnary word dictionnary =
   let char_list = string_to_list word in
   aux char_list dictionnary
 
-
-let add_word word dictionnary =
-  let char_list = string_to_list word in
-  add_char_list_to_dictionnary char_list dictionnary
-
 let create_dictionnary word_list =
   List.fold_left (fun dic word -> add_word word dic) [] word_list
 
@@ -89,8 +80,6 @@ let rec all_coordinates_size_n n =
   let xs = to_n n in
   List.fold_left (@) [] @@
     List.map (function x -> (List.map (function y -> (x,y)) xs)) xs
-
-let coor = all_coordinates_size_n 3
 
 let find_words_in_grid grid dictionnary =
 
@@ -131,11 +120,7 @@ let find_words_in_grid grid dictionnary =
   List.fold_left (@) [] @@
     List.map (function (i,j) -> aux i j [] dictionnary) start_points
 
-(*let dic = create_dictionnary ["abc"; "ab"; "bd"; "e"]
-let b = is_word_in_dictionnary "ee" dic*)
-
 let make_grid words =
-
   let rec aux = function
       [] -> []
     | word :: words ->  string_to_list word :: (aux words)
