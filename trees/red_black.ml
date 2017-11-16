@@ -29,7 +29,7 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
       in
       aux
 
-    let color = function
+    let node_color = function
       | Node {color} -> color
       | Nil -> Black
 
@@ -49,12 +49,53 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
                | Node ({key = k; value = v; color; left = left2; right = right2} as dad)->
                   if Key.compare key k <= 0 then
                     match left2 with
-                    | Nil -> Node {grandpa with left = Node {dad with left = current}}
-                    | _ -> aux (Node dad)
+                    | Nil ->
+                       if color = Black then
+                         Node {grandpa with left = Node {dad with left = current}}
+                       else
+                         if node_color right1 = Red then
+                           let uncle = match right1 with
+                               Nil -> assert false
+                             | Node node -> node
+                           in
+                           Node {grandpa with
+                                  color = Red;
+                                  left = Node {dad with
+                                                left = current;
+                                                color = Black;
+                                              };
+                                  right = Node {uncle with
+                                                 color = Black
+                                               }
+                                }
+                         else
+                           Node grandpa (* TODO fix *)
+                    | _ -> Node {grandpa with left = aux (Node dad)}
                   else
                     match right2 with
-                    | Nil -> Node {grandpa with left = Node {dad with right = current}}
-                    | _ -> aux (Node dad)
+                    | Nil ->
+                       if color = Black then
+                         Node {grandpa with left = Node {dad with right = current}}
+                       else
+                         if node_color right1 = Red then
+                           let uncle = match right1 with
+                               Nil -> assert false
+                             | Node node -> node
+                           in
+                           Node {grandpa with
+                                  color = Red;
+                                  left = Node {dad with
+                                                right = current;
+                                                color = Black;
+                                              };
+                                  right = Node {uncle with
+                                                 color = Black
+                                               }
+                                }
+                         else
+                           Node grandpa (* TODO fix *)
+
+                    | _ -> Node {grandpa with left = aux (Node dad)}
              end
            else
              match right1 with
@@ -62,17 +103,70 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
                | Node ({key = k; value = v; color; left = left2; right = right2} as dad)->
                   if Key.compare key k <= 0 then
                     match left2 with
-                    | Nil -> Node {grandpa with right = Node {dad with left = current}}
-                    | _ -> aux (Node dad)
+                    | Nil ->
+                       if color = Black then
+                         Node {grandpa with right = Node {dad with left = current}}
+                       else
+                         if node_color left1 = Red then
+                           let uncle = match left1 with
+                               Nil -> assert false
+                             | Node node -> node
+                           in
+                           Node {grandpa with
+                                  color = Red;
+                                  right = Node {dad with
+                                                 left = current;
+                                                 color = Black;
+                                              };
+                                  left = Node {uncle with
+                                                 color = Black
+                                               }
+                                }
+                         else
+                           Node grandpa (* TODO fix *)
+
+                    | _ -> Node {grandpa with right = aux (Node dad)}
                   else
                     match right2 with
-                    | Nil -> Node {grandpa with right = Node {dad with right = current}}
-                    | _ -> aux (Node dad)
+                    | Nil ->
+                       if color = Black then
+                         Node {grandpa with right = Node {dad with left = current}}
+                       else
+                         if node_color left1 = Red then
+                           let uncle = match left1 with
+                               Nil -> assert false
+                             | Node node -> node
+                           in
+                           Node {grandpa with
+                                  color = Red;
+                                  right = Node {dad with
+                                                 right = current;
+                                                 color = Black;
+                                              };
+                                  left = Node {uncle with
+                                                 color = Black
+                                               }
+                                }
+                         else
+                           Node grandpa (* TODO fix *)
 
+                    | _ -> Node {grandpa with right = aux (Node dad)}
 
       in
+      let aux t =
+        match aux t with
+          Nil -> assert false
+        | Node ({color} as node) ->
+           if color = Red then
+             begin
+               print_endline "shifting root to back to black";
+               Node {node with color = Black}
+             end
+           else
+             Node node
+      in
       function
-      | Nil -> Node {key; value; color = Red; left = Nil; right = Nil}
+      | Nil -> Node {key; value; color = Black; left = Nil; right = Nil}
       | Node {key = k; value = v; color; left; right} as gp ->
          if Key.compare key k <= 0 then
            match left with
@@ -93,6 +187,12 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
 
 module IntTree = RedBlackTree(Int)(Int)
 open IntTree
+
+let of_list l = List.fold_right (fun x y -> insert x 0 y) l Nil
+let ol = List.fold_left (fun x y -> insert y 0 x) Nil
+
+let _ = ol [30;20;40;50;35;60;70;45]
+
 let test () =
   let tree = Nil in
   let tree = insert 1 0 tree in
