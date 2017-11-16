@@ -1,16 +1,4 @@
-module type ORDERED_TYPE =
-  sig
-    type t
-    val compare : t -> t -> int
-    val to_string : t -> string
-  end
-
-module type TYPE =
-  sig
-    type t
-    val to_string : t -> string
-  end
-
+open Types
 
 module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
   struct
@@ -45,7 +33,7 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
       let rec aux = function
         | Nil -> Node {key; value; color = Red; left = Nil; right = Nil}
         | Node {key = k; value = v; color; left; right} ->
-           if Key.compare key k <=0 then
+           if Key.compare key k <= 0 then
              Node {key = k; value = v; color; left = aux left; right}
            else
              Node {key = k; value = v; color; left; right = aux right}
@@ -53,37 +41,13 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
 
   end
 
-(********** TEST **********)
 
-module Int = struct type t = int let compare = compare let to_string = string_of_int end
+(**** TEST ****)
 
-module IntRBTree = RedBlackTree(Int)(Int)
-
+module IntTree = RedBlackTree(Int)(Int)
+open IntTree
 let test () =
-  let t = IntRBTree.empty () in
-  IntRBTree.to_string t;
-  print_endline "====================";
-  let t = IntRBTree.insert 1 1 t in
-  IntRBTree.to_string t;
-  print_endline "====================";
-  let t = IntRBTree.insert 2 2 t in
-  IntRBTree.to_string t;
-  print_endline "====================";
-  let t = IntRBTree.insert 5 5 t in
-  IntRBTree.to_string t;
-  print_endline "====================";
-  let t = IntRBTree.insert 3 3 t in
-  IntRBTree.to_string t;
-  print_endline "====================";
-  let t = IntRBTree.insert 7 7 t in
-  IntRBTree.to_string t;
-  print_endline "====================";
-  let t = IntRBTree.insert 0 0 t in
-  IntRBTree.to_string t;
-  print_endline "====================";
-  let t = IntRBTree.insert 4 0 t in
-  IntRBTree.to_string t;
-  print_endline "===================="
+  let tree = Nil in
+  let tree = insert 1 0 tree in
 
-
-let () = test ()
+  tree

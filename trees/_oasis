@@ -1,0 +1,12 @@
+OASISFormat: 0.4
+Name:        red-black-trees
+Version:     0.0.1
+Synopsis:    red black tree library
+Authors:     Bruce Ricard
+License:     LGPL-2.1 with OCaml linking exception
+Plugins:     META (0.4), DevFiles (0.4)
+
+Library "red-black-trees"
+  Path:       .
+  BuildTools: ocamlbuild
+  Modules:    Types, Red_black
