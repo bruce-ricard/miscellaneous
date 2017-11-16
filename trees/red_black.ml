@@ -40,32 +40,33 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
     let insert key value =
       let rec aux = function
         | Nil -> assert false
-        | Node ({key = k; value = v; color; left; right} as grandpa) ->
+        | Node ({key = k; value = v; color; left = left1; right = right1} as grandpa) ->
+           let current = Node {key; value; color = Red; left = Nil; right = Nil} in
            if Key.compare key k <= 0 then
              begin
-               match left with
+               match left1 with
                | Nil -> assert false
-               | Node ({key = k; value = v; color; left; right} as dad)->
+               | Node ({key = k; value = v; color; left = left2; right = right2} as dad)->
                   if Key.compare key k <= 0 then
-                    match left with
-                    | Nil -> Node grandpa
+                    match left2 with
+                    | Nil -> Node {grandpa with left = Node {dad with left = current}}
                     | _ -> aux (Node dad)
                   else
-                    match right with
-                    | Nil -> Node grandpa
+                    match right2 with
+                    | Nil -> Node {grandpa with left = Node {dad with right = current}}
                     | _ -> aux (Node dad)
              end
            else
-             match right with
+             match right1 with
                | Nil -> assert false
-               | Node ({key = k; value = v; color; left; right} as dad)->
+               | Node ({key = k; value = v; color; left = left2; right = right2} as dad)->
                   if Key.compare key k <= 0 then
-                    match left with
-                    | Nil -> Node grandpa
+                    match left2 with
+                    | Nil -> Node {grandpa with right = Node {dad with left = current}}
                     | _ -> aux (Node dad)
                   else
-                    match right with
-                    | Nil -> Node grandpa
+                    match right2 with
+                    | Nil -> Node {grandpa with right = Node {dad with right = current}}
                     | _ -> aux (Node dad)
 
 
