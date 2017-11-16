@@ -29,18 +29,64 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
       in
       aux
 
+    let color = function
+      | Node {color} -> color
+      | Nil -> Black
+
+    let get_node = function
+        Nil -> failwith "This node is empty"
+      | Node node -> node
+
     let insert key value =
       let rec aux = function
-        | Nil -> Node {key; value; color = Red; left = Nil; right = Nil}
-        | Node {key = k; value = v; color; left; right} ->
+        | Nil -> assert false
+        | Node ({key = k; value = v; color; left; right} as grandpa) ->
            if Key.compare key k <= 0 then
-             Node {key = k; value = v; color; left = aux left; right}
+             begin
+               match left with
+               | Nil -> assert false
+               | Node ({key = k; value = v; color; left; right} as dad)->
+                  if Key.compare key k <= 0 then
+                    match left with
+                    | Nil -> Node grandpa
+                    | _ -> aux (Node dad)
+                  else
+                    match right with
+                    | Nil -> Node grandpa
+                    | _ -> aux (Node dad)
+             end
            else
-             Node {key = k; value = v; color; left; right = aux right}
-      in aux
+             match right with
+               | Nil -> assert false
+               | Node ({key = k; value = v; color; left; right} as dad)->
+                  if Key.compare key k <= 0 then
+                    match left with
+                    | Nil -> Node grandpa
+                    | _ -> aux (Node dad)
+                  else
+                    match right with
+                    | Nil -> Node grandpa
+                    | _ -> aux (Node dad)
+
+
+      in
+      function
+      | Nil -> Node {key; value; color = Red; left = Nil; right = Nil}
+      | Node {key = k; value = v; color; left; right} as gp ->
+         if Key.compare key k <= 0 then
+           match left with
+           | Nil ->
+              let current = Node {key; value; color = Red; left = Nil; right = Nil} in
+              Node {key = k; value = v; color; left = current; right}
+           | _ -> aux gp
+         else
+           match right with
+           | Nil ->
+              let current = Node {key; value; color = Red; left = Nil; right = Nil} in
+              Node {key = k; value = v; color; left; right = current}
+           | _ -> aux gp
 
   end
-
 
 (**** TEST ****)
 
