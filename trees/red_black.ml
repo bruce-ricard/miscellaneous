@@ -16,7 +16,6 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
   struct
     type color = Black | Red
 
-    (*
     type t = Node of node | Nil
      and node =
        {
@@ -26,99 +25,31 @@ module RedBlackTree (Key : ORDERED_TYPE) (Value : TYPE) =
          left : t;
          right : t
        }
-                            *)
-    type t =
-      | Nil
-      | BlackNode of black_node
-      | RedNode of red_node
-
-     and black_node =
-       {
-         black_key : Key.t;
-         black_value : Value.t;
-         black_left : t;
-         black_right : t
-       }
-
-     and red_node =
-       {
-         red_key : Key.t;
-         red_value : Value.t;
-
-         red_left : black_node option;
-         red_right : black_node option;
-       }
 
     let empty () = Nil
 
     let find x =
       let rec aux = function
         | Nil -> None
-        | BlackNode node -> find_in_black_node node
-        | RedNode node -> find_in_red_node node
-        and find_in_black_node {black_key; black_value; black_left; black_right} =
-          match Key.compare x black_key with
-          | 0 -> Some black_value
-          | n when n < 0 -> aux black_left
-          | n when n > 0 -> aux black_right
-          | _ -> assert false
-
-        and find_in_red_node {red_key; red_value; red_left; red_right} =
-          match Key.compare x red_key, red_left, red_right with
-          | 0,_,_ -> Some red_value
-          | n,None,_ when n < 0 -> None
-          | n,(Some black_node), _ when n < 0 -> find_in_black_node black_node
-          | n,_,None when n > 0 -> None
-          | n,_,(Some black_node) when n > 0 -> find_in_black_node black_node
-          | _ -> assert false
-
-
+        | Node {key; value; color; left; right} ->
+           match Key.compare x key with
+           | 0 -> Some value
+           | n -> if n < 0 then
+                    aux left
+                  else
+                    aux right
       in
       aux
 
-    let rec insert key value = function
-        Nil -> BlackNode {
-                   black_key = key;
-                   black_value = value;
-                   black_left = Nil;
-                   black_right = Nil
-                 }
-      | BlackNode {black_key; black_value; black_left; black_right} ->
-         if Key.compare key black_key <= 0 then
-           BlackNode {
-               black_key;
-               black_value;
-               black_left = insert key value black_left;
-               black_right
-             }
-         else
-           BlackNode {
-               black_key;
-               black_value;
-               black_left;
-               black_right = insert key value black_right
-             }
-      | RedNode {red_key; red_value; red_left; red_right} ->
-         Nil
-
-    let to_string tree =
-      let rec combine_children pad l1 l2 =
-        match l1,l2 with
-        | x :: xs, (y :: ys) -> (x ^ (String.make pad '.') ^ y) :: combine_children pad xs ys
-        | l,[] -> l
-        | [],l -> List.map (fun s -> (String.make (pad + 1) ':') ^ s) l
-      in
-      let rec aux pad = function
-          Nil -> [(String.make pad ' ' ^ "()")], pad + 2
-        | BlackNode {black_key; black_value; black_left; black_right} ->
-           let left, left_pad = aux pad black_left
-           and right, right_pad = aux pad black_right in
-           let pad = max left_pad right_pad in
-           (String.make pad '_' ^ Key.to_string black_key) :: (combine_children pad left right), (pad + 2)
-        | RedNode {red_key; red_value; red_left; red_right} ->
-           [""],0
-      in
-      List.iter print_endline (fst (aux 0 tree))
+    let insert key value =
+      let rec aux = function
+        | Nil -> Node {key; value; color = Red; left = Nil; right = Nil}
+        | Node {key = k; value = v; color; left; right} ->
+           if Key.compare key k <=0 then
+             Node {key = k; value = v; color; left = aux left; right}
+           else
+             Node {key = k; value = v; color; left; right = aux right}
+      in aux
 
   end
 
