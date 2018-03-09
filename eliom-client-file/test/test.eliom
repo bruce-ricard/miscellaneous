@@ -13,15 +13,12 @@ module Test_app =
 let main_service =
   Eliom_service.App.service ~path:[] ~get_params:Eliom_parameter.unit ()
 
-let%client init () =
-  Eliom_lib.alert "Wazuuup!"
-
 let () =
   Test_app.register
     ~service:main_service
     (fun () () ->
       let _ = [%client
-                  (init () : unit)
+                  (Client_lib.init () : unit)
               ]
       in
       Lwt.return
