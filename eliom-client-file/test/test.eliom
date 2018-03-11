@@ -27,31 +27,31 @@ let rec aux f i =
   ) >>= fun () -> aux f (i + 1)
 
 let send_data f =
-  print "wtf";
   aux f 0
 
 let () =
   let e,f = React.E.create () in
   let printgot = React.E.map (fun s -> print (Printf.sprintf"got %s\n" s)) e in
-  let () = Lwt.async (fun () -> send_data f; Lwt.return ()) in
-  f "dadoudadou";
+  let () = Lwt.async (fun () -> send_data f) in
   Test_app.register
     ~service:main_service
     (fun () () ->
       let r,f = React.E.create () in
       let printgot2 = React.E.map (fun s -> (print (Printf.sprintf "got2 %s\n" s))) r in
       let d = Eliom_react.Down.of_react r in
+      let comm = Eliom_react.Down.of_react e in
       let elt = div [pcdata "data"] in
+      let comm_elt =  div [pcdata "data"] in
+      let e = e in
       let _ = [%client
                   (Client_lib.init ();
                    Client_lib.update_html_content ~%elt ~%d;
+                   Client_lib.update_html_content ~%comm_elt ~%comm;
                    let p = React.E.map print_endline ~%d in
                    () : unit)
               ]
       in
-      f "plop";
-      f "cacou";
-      Lwt.async (fun () -> (send_data f; Lwt.return ()));
+      Lwt.async (fun () -> (send_data f));
       Lwt.return
         (Eliom_tools.F.html
            ~title:"test"
@@ -59,5 +59,9 @@ let () =
            Html5.F.(body [
                         h2 [pcdata "Welcome from Eliom's distillery!"];
                         br ();
+                        (pcdata "common");
+                        comm_elt;
+                        br();
+                        (pcdata "local");
                         elt;
     ])));
