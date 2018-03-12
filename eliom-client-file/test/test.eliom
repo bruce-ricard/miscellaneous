@@ -2,6 +2,8 @@
     open Eliom_lib
     open Eliom_content
     open Html5.D
+
+    module React = Lwt_react
 ]
 
 module Test_app =
@@ -13,55 +15,35 @@ module Test_app =
 let main_service =
   Eliom_service.App.service ~path:[] ~get_params:Eliom_parameter.unit ()
 
-let print s =
-  Lwt.async (fun () ->
-      Lwt_io.(write_line stdout) s
-    )
-
-let rec aux f i =
-  Lwt_unix.sleep 1. >>= (fun () ->
-    let s = string_of_int i in
-    print (Printf.sprintf "sending %s" s);
-    f s;
-    Lwt.return ();
-  ) >>= fun () -> aux f (i + 1)
-
-let send_data f =
-  aux f 0
-
 let () =
-  let e,f = React.E.create () in
-  let printgot = React.E.map (fun s -> print (Printf.sprintf"got %s\n" s)) e in
-  let () = Lwt.async (fun () -> send_data f) in
   Test_app.register
     ~service:main_service
     (fun () () ->
-      let r,f = React.E.create () in
-      let printgot2 = React.E.map (fun s -> (print (Printf.sprintf "got2 %s\n" s))) r in
-      let d = Eliom_react.Down.of_react r in
-      let comm = Eliom_react.Down.of_react e in
-      let elt = div [pcdata "data"] in
-      let comm_elt =  div [pcdata "data"] in
-      let e = e in
-      let _ = [%client
-                  (Client_lib.init ();
-                   Client_lib.update_html_content ~%elt ~%d;
-                   Client_lib.update_html_content ~%comm_elt ~%comm;
-                   let p = React.E.map print_endline ~%d in
-                   () : unit)
-              ]
-      in
-      Lwt.async (fun () -> (send_data f));
       Lwt.return
         (Eliom_tools.F.html
            ~title:"test"
            ~css:[["css";"test.css"]]
            Html5.F.(body [
                         h2 [pcdata "Welcome from Eliom's distillery!"];
-                        br ();
-                        (pcdata "common");
-                        comm_elt;
-                        br();
-                        (pcdata "local");
-                        elt;
-    ])));
+    ])))
+
+let print s =
+  Lwt.async (fun () ->
+      Lwt_io.(write_line stdout) s
+    )
+
+let rec call_every_second f i =
+  Lwt_unix.sleep 1. >>= (fun () ->
+    let s = string_of_int i in
+    print (Printf.sprintf "sending %s" s);
+    f s;
+    call_every_second f (i + 1)
+  )
+
+let send_data f =
+  call_every_second f 0
+
+let () =
+  let e,f = React.E.create () in
+  let printgot = React.E.map (fun s -> print (Printf.sprintf"got %s\n" s)) e in
+  Lwt.async (fun () -> send_data f)
