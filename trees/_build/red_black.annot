@@ -1,0 +1,546 @@
+"red_black.ml" 17 286 294 "red_black.ml" 17 286 299
+type(
+  unit -> t
+)
+ident(
+  def empty "red_black.ml" 19 310 314 "red_black.ml" 42 1032 1037
+)
+"red_black.ml" 17 286 300 "red_black.ml" 17 286 302
+type(
+  unit
+)
+"red_black.ml" 17 286 305 "red_black.ml" 17 286 308
+type(
+  t
+)
+"red_black.ml" 19 310 318 "red_black.ml" 19 310 322
+type(
+  Key.t -> t -> Value.t option
+)
+ident(
+  def find "red_black.ml" 32 632 636 "red_black.ml" 42 1032 1037
+)
+"red_black.ml" 19 310 323 "red_black.ml" 19 310 324
+type(
+  Key.t
+)
+ident(
+  def x "red_black.ml" 20 327 333 "red_black.ml" 30 621 630
+)
+"red_black.ml" 20 327 341 "red_black.ml" 20 327 344
+type(
+  t -> Value.t option
+)
+ident(
+  def aux "red_black.ml" 20 327 333 "red_black.ml" 30 621 630
+)
+"red_black.ml" 21 356 366 "red_black.ml" 21 356 369
+type(
+  t
+)
+"red_black.ml" 21 356 373 "red_black.ml" 21 356 377
+type(
+  Value.t option
+)
+"red_black.ml" 22 378 394 "red_black.ml" 22 378 397
+type(
+  Key.t
+)
+ident(
+  def key "red_black.ml" 23 429 440 "red_black.ml" 28 582 611
+)
+"red_black.ml" 22 378 399 "red_black.ml" 22 378 404
+type(
+  Value.t
+)
+ident(
+  def value "red_black.ml" 23 429 440 "red_black.ml" 28 582 611
+)
+"red_black.ml" 22 378 406 "red_black.ml" 22 378 411
+type(
+  color
+)
+ident(
+  def color "red_black.ml" 23 429 440 "red_black.ml" 28 582 611
+)
+"red_black.ml" 22 378 413 "red_black.ml" 22 378 417
+type(
+  t
+)
+ident(
+  def left "red_black.ml" 23 429 440 "red_black.ml" 28 582 611
+)
+"red_black.ml" 22 378 419 "red_black.ml" 22 378 424
+type(
+  t
+)
+ident(
+  def right "red_black.ml" 23 429 440 "red_black.ml" 28 582 611
+)
+"red_black.ml" 22 378 393 "red_black.ml" 22 378 425
+type(
+  node
+)
+"red_black.ml" 22 378 388 "red_black.ml" 22 378 425
+type(
+  t
+)
+"red_black.ml" 23 429 446 "red_black.ml" 23 429 457
+type(
+  Key.t -> Key.t -> int
+)
+ident(
+  ext_ref Key.compare
+)
+"red_black.ml" 23 429 458 "red_black.ml" 23 429 459
+type(
+  Key.t
+)
+ident(
+  int_ref x "red_black.ml" 19 310 323 "red_black.ml" 19 310 324
+)
+"red_black.ml" 23 429 460 "red_black.ml" 23 429 463
+type(
+  Key.t
+)
+ident(
+  int_ref key "red_black.ml" 22 378 394 "red_black.ml" 22 378 397
+)
+"red_black.ml" 23 429 446 "red_black.ml" 23 429 463
+call(
+  stack
+)
+type(
+  int
+)
+"red_black.ml" 24 469 482 "red_black.ml" 24 469 483
+type(
+  int
+)
+"red_black.ml" 24 469 492 "red_black.ml" 24 469 497
+type(
+  Value.t
+)
+ident(
+  int_ref value "red_black.ml" 22 378 399 "red_black.ml" 22 378 404
+)
+"red_black.ml" 24 469 487 "red_black.ml" 24 469 497
+type(
+  Value.t option
+)
+"red_black.ml" 25 498 511 "red_black.ml" 25 498 512
+type(
+  int
+)
+ident(
+  def n "red_black.ml" 25 498 516 "red_black.ml" 28 582 611
+)
+"red_black.ml" 25 498 519 "red_black.ml" 25 498 520
+type(
+  int
+)
+ident(
+  int_ref n "red_black.ml" 25 498 511 "red_black.ml" 25 498 512
+)
+"red_black.ml" 25 498 521 "red_black.ml" 25 498 522
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( < )
+)
+"red_black.ml" 25 498 523 "red_black.ml" 25 498 524
+type(
+  int
+)
+"red_black.ml" 25 498 519 "red_black.ml" 25 498 524
+type(
+  bool
+)
+"red_black.ml" 26 530 550 "red_black.ml" 26 530 553
+type(
+  t -> Value.t option
+)
+ident(
+  int_ref aux "red_black.ml" 20 327 341 "red_black.ml" 20 327 344
+)
+"red_black.ml" 26 530 554 "red_black.ml" 26 530 558
+type(
+  t
+)
+ident(
+  int_ref left "red_black.ml" 22 378 413 "red_black.ml" 22 378 417
+)
+"red_black.ml" 26 530 550 "red_black.ml" 26 530 558
+call(
+  tail
+)
+type(
+  Value.t option
+)
+"red_black.ml" 28 582 602 "red_black.ml" 28 582 605
+type(
+  t -> Value.t option
+)
+ident(
+  int_ref aux "red_black.ml" 20 327 341 "red_black.ml" 20 327 344
+)
+"red_black.ml" 28 582 606 "red_black.ml" 28 582 611
+type(
+  t
+)
+ident(
+  int_ref right "red_black.ml" 22 378 419 "red_black.ml" 22 378 424
+)
+"red_black.ml" 28 582 602 "red_black.ml" 28 582 611
+call(
+  tail
+)
+type(
+  Value.t option
+)
+"red_black.ml" 25 498 516 "red_black.ml" 28 582 611
+type(
+  Value.t option
+)
+"red_black.ml" 23 429 440 "red_black.ml" 28 582 611
+type(
+  Value.t option
+)
+"red_black.ml" 20 327 347 "red_black.ml" 28 582 611
+type(
+  t -> Value.t option
+)
+"red_black.ml" 30 621 627 "red_black.ml" 30 621 630
+type(
+  t -> Value.t option
+)
+ident(
+  int_ref aux "red_black.ml" 20 327 341 "red_black.ml" 20 327 344
+)
+"red_black.ml" 20 327 333 "red_black.ml" 30 621 630
+type(
+  t -> Value.t option
+)
+"red_black.ml" 32 632 640 "red_black.ml" 32 632 646
+type(
+  Key.t -> Value.t -> t -> t
+)
+ident(
+  def insert "red_black.ml" 40 1018 1030 "red_black.ml" 42 1032 1037
+)
+"red_black.ml" 32 632 647 "red_black.ml" 32 632 650
+type(
+  Key.t
+)
+ident(
+  def key "red_black.ml" 32 632 651 "red_black.ml" 40 1018 1030
+)
+"red_black.ml" 32 632 651 "red_black.ml" 32 632 656
+type(
+  Value.t
+)
+ident(
+  def value "red_black.ml" 33 659 665 "red_black.ml" 40 1018 1030
+)
+"red_black.ml" 33 659 673 "red_black.ml" 33 659 676
+type(
+  t -> t
+)
+ident(
+  def aux "red_black.ml" 33 659 665 "red_black.ml" 40 1018 1030
+)
+"red_black.ml" 34 688 698 "red_black.ml" 34 688 701
+type(
+  t
+)
+"red_black.ml" 34 688 711 "red_black.ml" 34 688 714
+type(
+  Key.t
+)
+ident(
+  int_ref key "red_black.ml" 32 632 647 "red_black.ml" 32 632 650
+)
+"red_black.ml" 34 688 716 "red_black.ml" 34 688 721
+type(
+  Value.t
+)
+ident(
+  int_ref value "red_black.ml" 32 632 651 "red_black.ml" 32 632 656
+)
+"red_black.ml" 34 688 731 "red_black.ml" 34 688 734
+type(
+  color
+)
+"red_black.ml" 34 688 743 "red_black.ml" 34 688 746
+type(
+  t
+)
+"red_black.ml" 34 688 756 "red_black.ml" 34 688 759
+type(
+  t
+)
+"red_black.ml" 34 688 710 "red_black.ml" 34 688 760
+type(
+  node
+)
+"red_black.ml" 34 688 705 "red_black.ml" 34 688 760
+type(
+  t
+)
+"red_black.ml" 35 761 783 "red_black.ml" 35 761 784
+type(
+  Key.t
+)
+ident(
+  def k "red_black.ml" 36 820 831 "red_black.ml" 39 947 1017
+)
+"red_black.ml" 35 761 794 "red_black.ml" 35 761 795
+type(
+  Value.t
+)
+ident(
+  def v "red_black.ml" 36 820 831 "red_black.ml" 39 947 1017
+)
+"red_black.ml" 35 761 797 "red_black.ml" 35 761 802
+type(
+  color
+)
+ident(
+  def color "red_black.ml" 36 820 831 "red_black.ml" 39 947 1017
+)
+"red_black.ml" 35 761 804 "red_black.ml" 35 761 808
+type(
+  t
+)
+ident(
+  def left "red_black.ml" 36 820 831 "red_black.ml" 39 947 1017
+)
+"red_black.ml" 35 761 810 "red_black.ml" 35 761 815
+type(
+  t
+)
+ident(
+  def right "red_black.ml" 36 820 831 "red_black.ml" 39 947 1017
+)
+"red_black.ml" 35 761 776 "red_black.ml" 35 761 816
+type(
+  node
+)
+"red_black.ml" 35 761 771 "red_black.ml" 35 761 816
+type(
+  t
+)
+"red_black.ml" 36 820 834 "red_black.ml" 36 820 845
+type(
+  Key.t -> Key.t -> int
+)
+ident(
+  ext_ref Key.compare
+)
+"red_black.ml" 36 820 846 "red_black.ml" 36 820 849
+type(
+  Key.t
+)
+ident(
+  int_ref key "red_black.ml" 32 632 647 "red_black.ml" 32 632 650
+)
+"red_black.ml" 36 820 850 "red_black.ml" 36 820 851
+type(
+  Key.t
+)
+ident(
+  int_ref k "red_black.ml" 35 761 783 "red_black.ml" 35 761 784
+)
+"red_black.ml" 36 820 834 "red_black.ml" 36 820 851
+call(
+  stack
+)
+type(
+  int
+)
+"red_black.ml" 36 820 852 "red_black.ml" 36 820 854
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( <= )
+)
+"red_black.ml" 36 820 854 "red_black.ml" 36 820 855
+type(
+  int
+)
+"red_black.ml" 36 820 834 "red_black.ml" 36 820 855
+type(
+  bool
+)
+"red_black.ml" 37 861 886 "red_black.ml" 37 861 887
+type(
+  Key.t
+)
+ident(
+  int_ref k "red_black.ml" 35 761 783 "red_black.ml" 35 761 784
+)
+"red_black.ml" 37 861 897 "red_black.ml" 37 861 898
+type(
+  Value.t
+)
+ident(
+  int_ref v "red_black.ml" 35 761 794 "red_black.ml" 35 761 795
+)
+"red_black.ml" 37 861 900 "red_black.ml" 37 861 905
+type(
+  color
+)
+ident(
+  int_ref color "red_black.ml" 35 761 797 "red_black.ml" 35 761 802
+)
+"red_black.ml" 37 861 914 "red_black.ml" 37 861 917
+type(
+  t -> t
+)
+ident(
+  int_ref aux "red_black.ml" 33 659 673 "red_black.ml" 33 659 676
+)
+"red_black.ml" 37 861 918 "red_black.ml" 37 861 922
+type(
+  t
+)
+ident(
+  int_ref left "red_black.ml" 35 761 804 "red_black.ml" 35 761 808
+)
+"red_black.ml" 37 861 914 "red_black.ml" 37 861 922
+call(
+  stack
+)
+type(
+  t
+)
+"red_black.ml" 37 861 924 "red_black.ml" 37 861 929
+type(
+  t
+)
+ident(
+  int_ref right "red_black.ml" 35 761 810 "red_black.ml" 35 761 815
+)
+"red_black.ml" 37 861 879 "red_black.ml" 37 861 930
+type(
+  node
+)
+"red_black.ml" 37 861 874 "red_black.ml" 37 861 930
+type(
+  t
+)
+"red_black.ml" 39 947 972 "red_black.ml" 39 947 973
+type(
+  Key.t
+)
+ident(
+  int_ref k "red_black.ml" 35 761 783 "red_black.ml" 35 761 784
+)
+"red_black.ml" 39 947 983 "red_black.ml" 39 947 984
+type(
+  Value.t
+)
+ident(
+  int_ref v "red_black.ml" 35 761 794 "red_black.ml" 35 761 795
+)
+"red_black.ml" 39 947 986 "red_black.ml" 39 947 991
+type(
+  color
+)
+ident(
+  int_ref color "red_black.ml" 35 761 797 "red_black.ml" 35 761 802
+)
+"red_black.ml" 39 947 993 "red_black.ml" 39 947 997
+type(
+  t
+)
+ident(
+  int_ref left "red_black.ml" 35 761 804 "red_black.ml" 35 761 808
+)
+"red_black.ml" 39 947 1007 "red_black.ml" 39 947 1010
+type(
+  t -> t
+)
+ident(
+  int_ref aux "red_black.ml" 33 659 673 "red_black.ml" 33 659 676
+)
+"red_black.ml" 39 947 1011 "red_black.ml" 39 947 1016
+type(
+  t
+)
+ident(
+  int_ref right "red_black.ml" 35 761 810 "red_black.ml" 35 761 815
+)
+"red_black.ml" 39 947 1007 "red_black.ml" 39 947 1016
+call(
+  stack
+)
+type(
+  t
+)
+"red_black.ml" 39 947 965 "red_black.ml" 39 947 1017
+type(
+  node
+)
+"red_black.ml" 39 947 960 "red_black.ml" 39 947 1017
+type(
+  t
+)
+"red_black.ml" 36 820 831 "red_black.ml" 39 947 1017
+type(
+  t
+)
+"red_black.ml" 33 659 679 "red_black.ml" 39 947 1017
+type(
+  t -> t
+)
+"red_black.ml" 40 1018 1027 "red_black.ml" 40 1018 1030
+type(
+  t -> t
+)
+ident(
+  int_ref aux "red_black.ml" 33 659 673 "red_black.ml" 33 659 676
+)
+"red_black.ml" 33 659 665 "red_black.ml" 40 1018 1030
+type(
+  t -> t
+)
+"red_black.ml" 47 1058 1075 "red_black.ml" 47 1058 1097
+call(
+  stack
+)
+"red_black.ml" 49 1111 1115 "red_black.ml" 49 1111 1119
+type(
+  unit -> IntTree.t
+)
+ident(
+  def test "red_black.ml" 52 1147 1153 "red_black.ml" 1 0 -1
+)
+"red_black.ml" 49 1111 1120 "red_black.ml" 49 1111 1122
+type(
+  unit
+)
+"red_black.ml" 50 1125 1131 "red_black.ml" 50 1125 1135
+type(
+  IntTree.t
+)
+ident(
+  def tree "red_black.ml" 52 1147 1149 "red_black.ml" 52 1147 1153
+)
+"red_black.ml" 50 1125 1138 "red_black.ml" 50 1125 1141
+type(
+  IntTree.t
+)
+"red_black.ml" 52 1147 1149 "red_black.ml" 52 1147 1153
+type(
+  IntTree.t
+)
+ident(
+  int_ref tree "red_black.ml" 50 1125 1131 "red_black.ml" 50 1125 1135
+)
+"red_black.ml" 50 1125 1127 "red_black.ml" 52 1147 1153
+type(
+  IntTree.t
+)

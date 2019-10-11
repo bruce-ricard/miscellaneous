@@ -1,0 +1,28 @@
+"types.ml" 15 165 173 "types.ml" 15 165 180
+type(
+  'a -> 'a -> int
+)
+ident(
+  def compare "types.ml" 16 191 195 "types.ml" 17 225 230
+)
+"types.ml" 15 165 183 "types.ml" 15 165 190
+type(
+  'a -> 'a -> int
+)
+ident(
+  ext_ref Pervasives.compare
+)
+"types.ml" 16 191 199 "types.ml" 16 191 208
+type(
+  int -> string
+)
+ident(
+  def to_string "types.ml" 16 191 224 "types.ml" 17 225 230
+)
+"types.ml" 16 191 211 "types.ml" 16 191 224
+type(
+  int -> string
+)
+ident(
+  ext_ref Pervasives.string_of_int
+)

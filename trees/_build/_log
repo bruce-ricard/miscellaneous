@@ -1,0 +1,20 @@
+### Starting build.
+# Target: types.ml.depends, tags: { annot, bin_annot, debug, extension:ml, file:types.ml, ocaml, ocamldep, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamldep -modules types.ml > types.ml.depends # cached
+# Target: types.cmo, tags: { annot, bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:types.cmo, file:types.ml, implem, ocaml, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamlc -c -g -annot -bin-annot -o types.cmo types.ml # cached
+# Target: red_black.ml.depends, tags: { annot, bin_annot, debug, extension:ml, file:red_black.ml, ocaml, ocamldep, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamldep -modules red_black.ml > red_black.ml.depends
+# Target: red_black.cmo, tags: { annot, bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:red_black.cmo, file:red_black.ml, implem, ocaml, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamlc -c -g -annot -bin-annot -o red_black.cmo red_black.ml
+# Target: red-black-trees.cma, tags: { annot, bin_annot, byte, debug, extension:cma, file:red-black-trees.cma, library, link, ocaml, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamlc -a types.cmo red_black.cmo -o red-black-trees.cma
+# Target: types.cmx, tags: { annot, bin_annot, compile, debug, extension:cmx, extension:ml, file:types.cmx, file:types.ml, implem, native, ocaml, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamlopt -c -g -annot -bin-annot -o types.cmx types.ml # cached
+# Target: red_black.cmx, tags: { annot, bin_annot, compile, debug, extension:cmx, extension:ml, file:red_black.cmx, file:red_black.ml, implem, native, ocaml, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamlopt -c -g -annot -bin-annot -o red_black.cmx red_black.ml
+# Target: red-black-trees.cmxa, tags: { annot, bin_annot, debug, extension:cmxa, file:red-black-trees.cmxa, library, link, native, ocaml, quiet, traverse }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamlopt -a types.cmx red_black.cmx -o red-black-trees.cmxa
+# Target: red-black-trees.cmxs, tags: { annot, bin_annot, debug, extension:cmxs, file:red-black-trees.cmxs, library, link, native, ocaml, quiet, shared, traverse, use_red-black-trees }
+/home/bruce/.opam/4.02.3/bin/ocamlfind ocamlopt -shared red-black-trees.cmxa types.cmx red_black.cmx -o red-black-trees.cmxs
+# Compilation successful.

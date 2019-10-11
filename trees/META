@@ -1,0 +1,11 @@
+# OASIS_START
+# DO NOT EDIT (digest: a2dad4e770fb5690941fa84e2b8c6cc0)
+version = "0.0.1"
+description = "red black tree library"
+archive(byte) = "red-black-trees.cma"
+archive(byte, plugin) = "red-black-trees.cma"
+archive(native) = "red-black-trees.cmxa"
+archive(native, plugin) = "red-black-trees.cmxs"
+exists_if = "red-black-trees.cma"
+# OASIS_STOP
+
