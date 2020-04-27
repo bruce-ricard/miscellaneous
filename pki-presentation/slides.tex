@@ -85,26 +85,29 @@
   --> leads to signatures
 }
 
-
-
-\frame{
-  \frametitle{Cryptography}
-  \framesubtitle{Encrypting / Decrypting}
-  \begin{itemize}
-  \item Symetric (AES)
-  \item Asymetric or public key (RSA)
-  \end{itemize}
-  \pause
-  Symetric: need to exchange keys, need different key for each person you want to exchange with \\
-  Asymetric: can only encrypt small amounts of data, slower/heavier algorithm usually
-}
-
 \frame{
   \frametitle{Cryptography}
   \framesubtitle{Signing / Validating}
 
-  Use asymetric cryptography to sign: ``encrypt'' with private key.
+  ``Hack'' on public key cryptography
+
+  Use public key cryptography to sign: but ``encrypt'' with private
+  key.
+
+  TODO: show little same example as the one from RSA encryption,
+  but ``encrypt'' with the private key
 }
+
+\frame{
+  \frametitle{Cryptography}
+  \framesubtitle{Issues with signatures}
+
+  How do you prove who you are? How do you prove the
+  public key is indeed yours?
+
+  --> leads to certificates
+}
+
 
 \frame{
   \frametitle{Cryptography}
