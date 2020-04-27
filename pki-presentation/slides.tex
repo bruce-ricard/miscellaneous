@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \begin{document}
 \title{Public Key Infrastructure}
 \subtitle{Introduction to cryptography}
@@ -25,10 +26,22 @@
   \includegraphics[scale=0.3]{images/caesar_cipher.png}
   \end{figure}
 
-  \pause
-
   Example: $``I LOVE CRYPTOGRAPHY'' \rightarrow
   ``L ORYH FUBSWRJUDSKB''$
+
+  \pause
+
+  \vspace{\baselineskip}
+  Symmetric-Key Cryptography
+}
+
+\frame{
+  \frametitle{Cryptography}
+  \framesubtitle{Vocabulary}
+
+  plain text $\xrightarrow[key]{encryption}$
+  cipher $\xrightarrow[key]{decryption}$ plain text
+
 }
 
 \frame{
