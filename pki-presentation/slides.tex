@@ -89,8 +89,17 @@
   \framesubtitle{Public key cryptography}
 
   RSA (Rivest–Shamir–Adleman 1977)
+  \begin{itemize}
+  \item Public Key: modulo $n$, number $e$
+  \item Private Key: number $d$
+  \end{itemize}
+  Such as for any $x$, number modulo $n$:
+  $$ x^{e.d} = x \pmod{n} $$
 
-  TODO: quick example on some fairly small finite field
+  \pause
+
+  Encryption: $ p \mapsto p^e $ ;
+  Decryption: $ c \mapsto c^d $
 }
 
 \frame{
