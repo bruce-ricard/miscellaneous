@@ -119,13 +119,25 @@
   \frametitle{Cryptography}
   \framesubtitle{Signing / Validating}
 
-  ``Hack'' on public key cryptography
-
-  Use public key cryptography to sign: but ``encrypt'' with private
+  Use Public Key Cryptography to sign: but ``encrypt'' with private
   key.
 
-  TODO: show little same example as the one from RSA encryption,
-  but ``encrypt'' with the private key
+  \pause
+
+  \begin{itemize}
+  \item Public Key: modulo $n$, number $e$
+  \item Private Key: number $d$
+  \end{itemize}
+  Such as for any $x$, number modulo $n$:
+  $$ x^{e.d} = x \pmod{n} $$
+
+  Encryption: $ p \mapsto p^e $ ;
+  Decryption: $ c \mapsto c^d $
+
+  \pause
+
+  Signing: $ p \mapsto p^d $ ;
+  Validation: $ s \mapsto s^e $
 }
 
 \frame{
