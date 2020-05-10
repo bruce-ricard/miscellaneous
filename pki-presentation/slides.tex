@@ -412,7 +412,33 @@
 
 }
 
+\section{Tokens}
+\frame{
+  \frametitle{Tokens}
+  \framesubtitle{Digital Tokens}
 
+  Cannot be made difficult to replicate.  Security has to come
+  from something else: secrecy. \pause
+
+  Two large categories for digital tokens:
+
+  \begin{itemize}
+  \item Opaque tokens
+    (a sequence of bytes that the issuer knows about)
+  \item Transparent tokens \pause
+    \begin{itemize}
+    \item JWT (JSON Web Token)
+      \begin{itemize}
+      \item payload
+      \item signature
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+  \pause
+
+  WARNING: signature does NOT mean it's safe to share.
+}
 
 \section{Extras}
 
