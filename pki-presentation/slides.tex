@@ -1,6 +1,8 @@
 \documentclass{beamer}
 \usepackage{graphicx}
+\usepackage[export]{adjustbox}
 \usepackage{amsmath}
+\usepackage{fourier}
 \begin{document}
 \title{Introduction to Software Security}
 \subtitle{Understanding the core concepts}
@@ -437,7 +439,19 @@
 
   \pause
 
-  WARNING: signature does NOT mean it's safe to share.
+  \begin{tabular}{ccc}
+    \begin{figure}
+      \includegraphics[scale=0.03]{images/warning.jpg}
+    \end{figure} &
+
+    \raisebox{-\totalheight}{Signature does not mean it's safe to share.}
+
+    &
+
+    \begin{figure}
+      \includegraphics[scale=0.03]{images/warning.jpg}
+    \end{figure} \\
+  \end{tabular}
 }
 
 \section{Extras}
