@@ -16,8 +16,8 @@
   \tableofcontents
 }
 
-\section{Prerequisites}
-\subsection{Cryptography}
+\section{Cryptography}
+\subsection{Historical context}
 \frame{
   \frametitle{Cryptography}
   \framesubtitle{A little history}
@@ -37,6 +37,7 @@
   Symmetric(-Key) Cryptography
 }
 
+\subsection{Theory}
 \frame{
   \frametitle{Cryptography}
   \framesubtitle{Vocabulary}
@@ -58,7 +59,7 @@
   \end{itemize}
 }
 
-
+\subsection{Practice}
 \frame{
   \frametitle{Cryptography}
   \framesubtitle{Issues with symmetric cryptography}
@@ -143,6 +144,28 @@
   Validation: $ s \mapsto s^e $
 }
 
+\subsection{Communicating safely using cryptography}
+\frame{
+  \frametitle{Using cryptography to communicate safely}
+
+  \begin{itemize}
+  \item Encrypt data so that it can only be read by entity with decoding key
+  \item Making sure that the right entity has the decoding key
+  \end{itemize}
+
+  \pause
+  \begin{itemize}
+  \item Encrypt AES key with RSA
+  \item Sign RSA public keys / owner by trusted party \pause : certificates
+  \end{itemize}
+}
+
+\frame{
+  \frametitle{Cryptography}
+
+  Questions?
+}
+
 \frame{
   \frametitle{Cryptography}
   \framesubtitle{Issues with signatures}
@@ -158,13 +181,6 @@
   \vspace{\baselineskip}
 
   $\rightarrow$ Certificates
-}
-
-
-\frame{
-  \frametitle{Cryptography}
-
-  Questions?
 }
 
 \section{Certificates}
@@ -238,22 +254,6 @@
   \frametitle{Certificates}
 
   Questions?
-}
-
-\section{Communicating safely using cryptography}
-\frame{
-  \frametitle{Using cryptography to communicate safely}
-
-  \begin{itemize}
-  \item Encrypt data so that it can only be read by entity with decoding key
-  \item Making sure that the right entity has the decoding key
-  \end{itemize}
-
-  \pause
-  \begin{itemize}
-  \item Encrypt AES key with RSA
-  \item Sign RSA public keys / owner by trusted party \pause : certificates
-  \end{itemize}
 }
 
 \subsection{SSL / TLS}
