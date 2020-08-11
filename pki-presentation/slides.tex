@@ -502,11 +502,12 @@
   their data to some websites, without giving them their credentials. \\~\
 
   \pause
-  Different OAuth flows:
+  Different OAuth grant types (flows):
   \begin{itemize}
   \item client credentials
   \item password \pause
   \item authorization code
+  \item refresh token
   \item \ldots
   \end{itemize}
 
@@ -517,31 +518,45 @@
   \frametitle{OAuth}
   \framesubtitle{Autorization code flow}
 
-  You want Slack to have access to your Microsoft calendar.\\~\
+  \includegraphics[scale=0.55]{images/auth_code_diagram.png}
 
-  Slack contacts Microsoft who now asks you to authorize them to have
-  access to your calendar. You'll have to log-in if you are not
-  already\\~\
+}
 
-  \includegraphics[scale=0.4]{images/oauth-allow.png}
 
-  You accept
+\frame{
+  \frametitle{OAuth}
+  \framesubtitle{Autorization code flow}
+
+  \includegraphics[scale=0.7]{images/oauth-allow.png}
 }
 
 \frame{
   \frametitle{OAuth}
   \framesubtitle{Autorization code flow}
 
-  Slack now recieves an access token that allows it to access your
-  calendar on your behalf. \\~\
+  \includegraphics[scale=0.55]{images/auth_code_diagram.png}
+}
 
-  Slack can now contact Microsoft with that access token, and gain
-  access to the calendar, until the token expires. \\~\
+\frame{
+  \frametitle{OAuth}
+  \framesubtitle{About expiry of access tokens}
 
-  Note: if it's an opaque token it can be revoked, but if it's a
-  transparent one, it can't.
+  Opaque tokens: can be revoked \\
+  Transparent tokens: can not be revoked \\~\
 
+  Logging out of the authorization server doesn't revoke the
+  tokens\\~\
 
+  \pause
+
+  \begin{itemize}
+  \item Opaque token cause load on the authorization server
+  \item Transparent tokens can't be revoked
+  \end{itemize}
+
+  \pause
+  \vspace{\baselineskip}
+  $\rightarrow$ Refresh tokens
 }
 
 \section{Extras}
