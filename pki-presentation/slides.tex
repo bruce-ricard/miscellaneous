@@ -517,6 +517,30 @@
   \frametitle{OAuth}
   \framesubtitle{Autorization code flow}
 
+  You want Slack to have access to your Microsoft calendar.\\~\
+
+  Slack contacts Microsoft who now asks you to authorize them to have
+  access to your calendar. You'll have to log-in if you are not
+  already\\~\
+
+  \includegraphics[scale=0.4]{images/oauth-allow.png}
+
+  You accept
+}
+
+\frame{
+  \frametitle{OAuth}
+  \framesubtitle{Autorization code flow}
+
+  Slack now recieves an access token that allows it to access your
+  calendar on your behalf. \\~\
+
+  Slack can now contact Microsoft with that access token, and gain
+  access to the calendar, until the token expires. \\~\
+
+  Note: if it's an opaque token it can be revoked, but if it's a
+  transparent one, it can't.
+
 
 }
 
