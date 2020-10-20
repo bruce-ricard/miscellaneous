@@ -169,7 +169,14 @@
   Encryption: $ p \mapsto p^e $ ;
   Decryption: $ c \mapsto c^d $
 
+  \note<2>{To encrypt, one uses the other party's public key}
+
   \pause
+
+  \note<3>{To sign,
+    one uses their own private key\\}
+  \note<3>{To validate the signature, you need to also have the plain
+    text\\}
 
   Signing: $ p \mapsto p^d $ ;
   Validation: $ s \mapsto s^e $
