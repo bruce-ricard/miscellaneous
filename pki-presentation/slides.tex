@@ -166,6 +166,7 @@
 
 }
 
+
 \frame{
   \frametitle{Cryptography}
   \framesubtitle{Public key cryptography}
@@ -179,6 +180,40 @@
 
   $f(41) = 41^2 = 1681 = 16 * 100 + 81 = 81 \pmod{100}$
 
+}
+
+\frame{
+  \frametitle{Cryptography}
+  \framesubtitle{Hashing}
+
+  Cryptographic versus non-cryptographic hashing.
+
+  \\~\
+
+  First example of one way functions.
+
+  \note<1> {hashes are non-injective, hence these one way functions don't
+    even have an inverse}
+
+  \pause
+
+  \\~\
+  Words you might hear: salt, pepper, nonce
+
+  \note<2> {These things all refer to strings that are appended to to
+    the plain text before encryption in order to make attacks harder}
+
+  \pause
+
+  \\~\
+
+  Examples:
+  \begin{itemize}
+  \item MD5
+  \item SHA family
+    \pause
+  \item bcrypt
+  \end{itemize}
 }
 
 \frame{
