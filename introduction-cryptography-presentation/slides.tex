@@ -25,17 +25,13 @@
 
   This presentation attempts to present a few important concepts
   related to software security.
-
   \\~\
 
   We don't expect the attendees to have any particular knowledge about
   math or cryptography or computer science.
-
   \\~\
 
   We'll go slowly and not dig too deep into any topic.
-
-
 }
 
 \section{Cryptography}
@@ -73,7 +69,6 @@
   Other words you might encounter: cryptology, cryptosystem,
   cryptanalysis.
   \pause
-
   \\~\
 
   Symmetric Cryptography diagram: \\~\
@@ -114,8 +109,6 @@
   \item Sound waves carrying spoken languages
   \end{itemize}
 
-  \\~\
-
   In software: ``character encoding''
 
   \note{Encoding: write the data so that it can be understood by everybody
@@ -133,7 +126,6 @@
 
   \note {For example, kubernetes says they encode secrets by default
     using base 64 encoding}
-
 }
 
 \frame{
@@ -206,25 +198,22 @@
   \framesubtitle{Hashing}
 
   Cryptographic versus non-cryptographic hashing.
-
   \\~\
-
   First example of one way functions.
+  \\~\
 
   \note<1> {hashes are non-injective, hence these one way functions don't
     even have an inverse}
 
   \pause
 
-  \\~\
   Words you might hear: salt, pepper, nonce
+  \\~\
 
   \note<2> {These things all refer to strings that are appended to to
     the plain text before encryption in order to make attacks harder}
 
   \pause
-
-  \\~\
 
   Examples:
   \begin{itemize}
