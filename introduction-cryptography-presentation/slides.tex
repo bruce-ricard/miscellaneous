@@ -244,8 +244,12 @@
   \frametitle{Not Cryptography}
   \framesubtitle{Encoding}
 
-echo 'mysafepassword123!' | base64 -                                                                          bXlzYWZlcGFzc3dvcmQxMjMhCg==
+\note we can't trust our human eyes to decide if the data is securely
+encrypted. It's not because you can't understand something, that
+nobody can. Humility.
 
+echo 'mysafepassword123!' | base64 -
+bXlzYWZlcGFzc3dvcmQxMjMhCg==
 
 echo 'mysafepassword123!' | sha1sum
 8df488f983bdea4d1e071db7f5e3c7189b9a5a4a
