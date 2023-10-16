@@ -139,7 +139,14 @@
 
   $f(41) = 41^2 = 1681 = 16 * 100 + 81 = 81 \pmod{100}$
 
-  \note {This function is very easy to calculate, but it is also very hard to find all numbers x such that f(x) = 81, by opposition to the integers for example}
+  \note {In integers, the square function is increasing. We can use
+    binary search to find a square root}
+  \note {In modular arithmetic,
+    you can see that the results appear to be quite random. That's how
+    we make a good one way function}
+  \note {This function is very easy to calculate, but it is also very
+    hard to find all numbers x such that f(x) = 81, by opposition to
+    the integers for example}
 }
 
 \frame{
@@ -244,9 +251,9 @@
   \frametitle{Not Cryptography}
   \framesubtitle{Encoding}
 
-\note we can't trust our human eyes to decide if the data is securely
+\note {we can't trust our human eyes to decide if the data is securely
 encrypted. It's not because you can't understand something, that
-nobody can. Humility.
+nobody can. Humility.}
 
 echo 'mysafepassword123!' | base64 -
 bXlzYWZlcGFzc3dvcmQxMjMhCg==
@@ -272,11 +279,6 @@ echo 'mysafepassword123!' | sha1sum
 \frame{
   \frametitle{Cryptography}
   \framesubtitle{Signing / Validating}
-
-  Use Public Key Cryptography to sign: but ``encrypt'' with private
-  key.
-
-  \pause
 
   \begin{itemize}
   \item Public Key: modulo $n$, number $e$
@@ -442,7 +444,7 @@ echo 'mysafepassword123!' | sha1sum
   \frametitle{PKI}
   \framesubtitle{Public Key Infrastructure}
 
-  \note PKI is the term used to describe a system using certificates and cryptography for its members to communicate safely on the Internet.
+  \note {PKI is the term used to describe a system using certificates and cryptography for its members to communicate safely on the Internet.}
 
   Name of such a system
 }
@@ -486,7 +488,7 @@ echo 'mysafepassword123!' | sha1sum
 
   \pause
   Server and client will now communicate by encrypting and decrypting any data sent
-  over the wire with their private key, using a symetric algorithm like AES.
+  over the wire with their common key, using a symetric algorithm like AES.
 }
 
 \frame{
